@@ -13,6 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum TickStatus {
+  SUCCESS
+  FAILED
+}
+
 model Websites {
   id        String   @id @default(uuid())
   user      Users    @relation("UserWebsites", fields: [userId], references: [id], onDelete: Cascade)
@@ -21,18 +26,32 @@ model Websites {
   url       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  ticks     Ticks[]
 
   @@map("websites")
 }
 
 model Users {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  websites Websites[] @relation("UserWebsites")
+  id        String     @id @default(uuid())
+  name      String
+  email     String     @unique
+  password  String     @db.VarChar(255)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  websites  Websites[] @relation("UserWebsites")
 
   @@map("users")
+}
+
+model Ticks {
+  id           String     @id @default(uuid())
+  websiteId    String
+  website      Websites   @relation(fields: [websiteId], references: [id])
+  status       TickStatus
+  responseTime Int
+  responseCode Int
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@map("ticks")
 }

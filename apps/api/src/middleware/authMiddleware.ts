@@ -17,16 +17,15 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction): void =
             res.status(401).json({ message: 'Unauthorized - Invalid token' });
             return;
         }
-
-        // Initialize req.user if it doesn't exist
+        
         if (!req.user) {
             req.user = { id: decoded.id };
         } else {
             req.user.id = decoded.id;
         }
-        
+
         console.log('authMiddleware-successful, user id:', decoded.id);
-        next(); // Continue to the next middleware/route handler
+        next();
     } catch (error) {
         console.error('authMiddleware-error:', error);
         res.status(401).json({ message: 'Unauthorized - Token verification failed' });

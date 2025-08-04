@@ -1,7 +1,6 @@
 import prismaClient from 'db';
 import { Request, Response, Router } from 'express';
 
-// Extend the Request type to include user
 interface AuthenticatedRequest extends Request {
   user?: {
     id: string;

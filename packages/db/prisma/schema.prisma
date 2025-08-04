@@ -16,6 +16,7 @@ datasource db {
 enum TickStatus {
   SUCCESS
   FAILED
+  TIMEOUT
 }
 
 model Websites {

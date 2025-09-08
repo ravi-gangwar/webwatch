@@ -1,5 +1,5 @@
 {
-  "name": "consumer",
+  "name": "worker",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,19 +8,18 @@
     "dev": "nodemon --exec ts-node --project tsconfig.json src/index.ts",
     "build": "npx tsc"
   },
-  "dependencies": {
-    "@webwatch/redis-client": "workspace:*",
-    "axios": "^1.11.0",
-    "db": "workspace:*",
-    "dotenv": "^17.2.2",
+  "devDependencies": {
     "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "db": "workspace:*",
+    "@webwatch/redis-client": "workspace:*",
+    "dotenv": "^17.2.2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "ts-node": "^10.9.2"
-  }
+  "description": ""
 }

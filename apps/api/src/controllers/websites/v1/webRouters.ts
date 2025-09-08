@@ -27,9 +27,7 @@ webRouter.post('/add-website', async (req: AuthenticatedRequest, res: Response):
         }
     })
 
-    if (existingWebsite) {
-        return res.status(400).json({ message: 'Website already exists' });
-    }
+    if (existingWebsite) return res.status(400).json({ message: 'Website already exists' });
 
     const newWebsite = await prismaClient.websites.create({
         data: {
@@ -40,6 +38,17 @@ webRouter.post('/add-website', async (req: AuthenticatedRequest, res: Response):
     })
 
     res.json({ message: 'Website added successfully', website: newWebsite });
+})
+
+// first get all websites for the user
+// then get all ticks for the websites
+// then return the ticks
+
+webRouter.get('/get-websites-ticks', async (req: AuthenticatedRequest, res: Response): Promise<any> => {
+    console.log("get-websites-ticks");
+    const userId = req?.user?.id;
+    const websites = await prismaClient.websites.findMany({ where: { userId }, include: { ticks: true } });
+    res.json({ websites: websites.map(website => ({ ...website, ticks: website.ticks.map(tick => ({ ...tick, website: undefined })) })) });
 })
 
 

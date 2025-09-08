@@ -45,14 +45,16 @@ model Users {
 }
 
 model Ticks {
-  id           String     @id @default(uuid())
-  websiteId    String
-  website      Websites   @relation(fields: [websiteId], references: [id])
-  status       TickStatus
-  responseTime Int
-  responseCode Int
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
+  id              String     @id @default(uuid())
+  websiteId       String
+  website         Websites   @relation(fields: [websiteId], references: [id])
+  status          TickStatus
+  responseTime    Int
+  responseCode    Int
+  consumerGroup   String?
+  consumerName    String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
 
   @@map("ticks")
 }

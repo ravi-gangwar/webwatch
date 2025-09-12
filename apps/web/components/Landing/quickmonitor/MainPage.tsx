@@ -10,7 +10,7 @@ interface ChartData {
 }
 
 function MainPage() {
-  const [chartData, setChartData] = useState<ChartData[]>([
+  const [chartData, setChartData] = useState  <ChartData[]>([
     { date: '2024-04-02', indiaServer: 45, usaServer: 78 },
     { date: '2024-04-05', indiaServer: 52, usaServer: 82 },
     { date: '2024-04-08', indiaServer: 38, usaServer: 95 },
@@ -46,8 +46,9 @@ function MainPage() {
   return (
     <Box className='bg-[#000000]'>
       <Flex width="100%" direction="column" align="center" gap="6">
+        <Text className='text-[#0E9BEA] text-5xl font-bold text-center'>You are monitoring your website live with WebWatch</Text> 
         <Flex direction="column" gap="2" width="100%" px="9">
-            <Text>URL: <span className='text-[#0E9BEA]'>https://ravigangwr.cv</span></Text>
+            <Text className='text-[#0E9BEA]'>https://ravigangwr.cv</Text>
             <Text>Ping: 5 sec</Text>
         </Flex>
         <Chart data={chartData} />

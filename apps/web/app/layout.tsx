@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
-import Navbar from "../components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,10 +13,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   title: "WebWatch",
@@ -32,9 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Theme appearance="dark" accentColor="red" grayColor="mauve" panelBackground="translucent" radius="small" scaling="90%">
-            <Navbar />
             {children}
         </Theme>
       </body>

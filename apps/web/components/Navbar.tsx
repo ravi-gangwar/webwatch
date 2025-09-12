@@ -17,7 +17,7 @@ export default function Navbar() {
     >      
       <Flex gap="3" align="center">        
         <Button
-          variant="soft"
+          variant="outline"
           size={{ initial: "2", sm: "3", md: "4" }}
         >
           Get Started

@@ -8,7 +8,7 @@ async function main() {
         const client = await redisClient();
         await client.xGroupCreate(
           "websites",
-          process.env.CONSUMER_GROUP_NAME || "consumer-group:undefined",
+          process.env.CONSUMER_GROUP_NAME || "",
           "0-0",
           { MKSTREAM: true }
         );

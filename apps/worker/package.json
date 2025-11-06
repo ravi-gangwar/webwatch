@@ -15,11 +15,8 @@
   },
   "dependencies": {
     "db": "workspace:*",
+    "cassandra": "workspace:*",
     "@webwatch/redis-client": "workspace:*",
     "dotenv": "^17.2.2"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
 }

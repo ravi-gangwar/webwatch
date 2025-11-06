@@ -9,10 +9,10 @@ import Navbar from "@/components/Navbar";
 
 
 interface ChartData {
-    date: string
-    indiaServer: number
-    usaServer: number
-  }
+  date: string
+  indiaServer: number
+  usaServer: number
+}
 
   
 

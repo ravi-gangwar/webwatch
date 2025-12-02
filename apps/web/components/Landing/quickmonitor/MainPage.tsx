@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import { Flex, Box, Text } from '@radix-ui/themes'
 import Chart from './Chart'
 
@@ -10,7 +10,7 @@ interface ChartData {
 }
 
 function MainPage() {
-  const [chartData, setChartData] = useState  <ChartData[]>([
+  const chartData: ChartData[] = [
     { date: '2024-04-02', indiaServer: 45, usaServer: 78 },
     { date: '2024-04-05', indiaServer: 52, usaServer: 82 },
     { date: '2024-04-08', indiaServer: 38, usaServer: 95 },
@@ -41,7 +41,7 @@ function MainPage() {
     { date: '2024-06-23', indiaServer: 40, usaServer: 88 },
     { date: '2024-06-26', indiaServer: 68, usaServer: 67 },
     { date: '2024-06-30', indiaServer: 51, usaServer: 81 }
-  ])
+  ]
 
   return (
     <Box className='bg-[#000000]'>

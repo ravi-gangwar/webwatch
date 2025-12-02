@@ -19,7 +19,7 @@ interface ChartData {
 export default function LivePage() {
     const { url } = useParams();
     const decodeURL = decodeURIComponent(url as string);
-    const chartData = useState  <ChartData[]>([
+    const [chartData] = useState<ChartData[]>([
         { date: '2024-04-02', indiaServer: 45, usaServer: 78 },
         { date: '2024-04-05', indiaServer: 52, usaServer: 82 },
         { date: '2024-04-08', indiaServer: 38, usaServer: 95 },
